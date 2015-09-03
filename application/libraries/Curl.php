@@ -6,10 +6,6 @@ class Curl {
 
     public function __construct()
     {
-        $CI =& get_instance();
-        
-        $CI->load->helper('url');
-        
         log_message('debug', "Curl Class Initialized");
     }
 
@@ -65,13 +61,13 @@ class Curl {
         //curl_setopt($sess, CURLOPT_PROXY, '127.0.0.1');
         //curl_setopt($sess, CURLOPT_PROXYPORT, 8888);
         
-		curl_setopt($sess, CURLOPT_BUFFERSIZE, 1024 * 4);
-		curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, false);
-		curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($sess, CURLOPT_BUFFERSIZE, 1024 * 4);
+	curl_setopt($sess, CURLOPT_SSL_VERIFYHOST, false);
+	curl_setopt($sess, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($sess, CURLOPT_TIMEOUT, $timeout); 
 		
-		curl_setopt($sess, CURLOPT_COOKIE, http_build_query($_COOKIE, NULL, '; ')); 
-		curl_setopt($sess, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+	curl_setopt($sess, CURLOPT_COOKIE, http_build_query($_COOKIE, NULL, '; ')); 
+	curl_setopt($sess, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 
         return $sess;
     }
